@@ -1,4 +1,4 @@
-import { promisify } from 'util';
+const promisify = require('util').promisify;
 
 const redis = require('redis');
 
