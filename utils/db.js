@@ -19,7 +19,6 @@ class DBClient {
         if (!(await this.collectionExists('files'))) {
           await this.db.createCollection('files');
         }
-        console.log('Connected to MongoDB');
       } catch (err) {
         console.error('Error connecting to MongoDB:', err);
       }
@@ -37,13 +36,11 @@ class DBClient {
 
   // User collection method, count number of document in collection
   async nbUsers() {
-    console.log('getting users');
     const countUser = await this.db.collection('users').countDocuments();
     return countUser;
   }
 
   async nbFiles() {
-    console.log('getting files');
     const countFiles = await this.db.collection('files').countDocuments();
     return countFiles;
   }
