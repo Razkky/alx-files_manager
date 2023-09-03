@@ -1,7 +1,7 @@
 const express = require('express');
-const { getStats } = require('../controllers/AppController').getStats;
-const { getStatus } = require('../controllers/AppController').getStatus;
-const { postNew } = require('../controllers/UsersController').postNew
+const { getStats } = require('../controllers/AppController');
+const { getStatus } = require('../controllers/AppController');
+const { postNew } = require('../controllers/UsersController');
 
 const router = express.Router();
 
