@@ -1,14 +1,51 @@
-const express = require('express');
-const { getStats } = require('../controllers/AppController');
-const { getStatus } = require('../controllers/AppController');
-const { postNew } = require('../controllers/UsersController');
+// const express = require('express');
+// const { getStats } = require('../controllers/AppController');
+// const { getStatus } = require('../controllers/AppController');
+// const { postNew } = require('../controllers/UsersController');
+
+// const router = express.Router();
+
+// router.get('/status', getStatus);
+
+// router.get('/stats', getStats);
+
+// router.post('/users', postNew);
+
+// module.exports = router;
+
+import express from 'express';
+// import auth from '../utils/auth';
+import { getStatus, getStats } from '../controllers/AppController';
+import { postNew } from '../controllers/UsersController';
+// import { getConnect, getDisconnect } from '../controllers/AuthController';
+// import { postUpload } from '../controllers/FilesController';
 
 const router = express.Router();
 
-router.get('/status', getStatus);
+// AppController routes
 
+// returns true if Redis is alive and if the DB is alive too
+router.get('/status', getStatus);
+// returns the number of users and files in DB
 router.get('/stats', getStats);
 
-router.post('/users', postNew);
+// UsersController routes
 
-module.exports = router;
+// creates a new user
+router.post('/users', postNew);
+// retrieves the user based on the token used
+// router.get('/users/me', auth, getMe);
+
+// AuthController routes
+
+// sign-in the user by generating a new authentication token
+// router.get('/connect', getConnect);
+// sign-out the user based on the token
+// router.get('/disconnect', auth, getDisconnect);
+
+// FilesController routs
+
+// creates a new file in the db and in disk
+// router.post('/files', auth, postUpload);
+
+export default router;
