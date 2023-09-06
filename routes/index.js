@@ -1,23 +1,9 @@
-// const express = require('express');
-// const { getStats } = require('../controllers/AppController');
-// const { getStatus } = require('../controllers/AppController');
-// const { postNew } = require('../controllers/UsersController');
-
-// const router = express.Router();
-
-// router.get('/status', getStatus);
-
-// router.get('/stats', getStats);
-
-// router.post('/users', postNew);
-
-// module.exports = router;
 
 import express from 'express';
 // import auth from '../utils/auth';
 import { getStatus, getStats } from '../controllers/AppController';
 import { postNew } from '../controllers/UsersController';
-// import { getConnect, getDisconnect } from '../controllers/AuthController';
+import { getConnect, getDisconnect } from '../controllers/AuthController';
 // import { postUpload } from '../controllers/FilesController';
 
 const router = express.Router();
@@ -34,14 +20,14 @@ router.get('/stats', getStats);
 // creates a new user
 router.post('/users', postNew);
 // retrieves the user based on the token used
-// router.get('/users/me', auth, getMe);
-
+router.get('/users/me', auth, getMe);
+-
 // AuthController routes
 
 // sign-in the user by generating a new authentication token
-// router.get('/connect', getConnect);
+router.get('/connect', getConnect);
 // sign-out the user based on the token
-// router.get('/disconnect', auth, getDisconnect);
+router.get('/disconnect', auth, getDisconnect);
 
 // FilesController routs
 
