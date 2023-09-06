@@ -1,8 +1,7 @@
-
 import express from 'express';
 import auth from '../utils/auth';
 import { getStatus, getStats } from '../controllers/AppController';
-import { postNew } from '../controllers/UsersController';
+import { postNew, getMe } from '../controllers/UsersController';
 import { getConnect, getDisconnect } from '../controllers/AuthController';
 import { postUpload } from '../controllers/FilesController';
 
@@ -21,7 +20,7 @@ router.get('/stats', getStats);
 router.post('/users', postNew);
 // retrieves the user based on the token used
 router.get('/users/me', auth, getMe);
--
+
 // AuthController routes
 
 // sign-in the user by generating a new authentication token
@@ -33,6 +32,5 @@ router.get('/disconnect', auth, getDisconnect);
 
 // creates a new file in the db and in disk
 router.post('/files', auth, postUpload);
-
 
 export default router;

@@ -2,7 +2,7 @@ import { ObjectID } from 'mongodb';
 import { v4 as uuid } from 'uuid';
 
 import dbClient from '../utils/db';
-iport { writeFile } from '../utils/files';
+import { writeFile } from '../utils/files';
 import fileQueue from '../utils/image_upload';
 
 const validFileTypes = ['folder', 'file', 'image'];
