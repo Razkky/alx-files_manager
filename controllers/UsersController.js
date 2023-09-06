@@ -1,5 +1,5 @@
 import sha1 from 'sha1';
-// import { ObjectId } from 'mongodb';
+import { ObjectId } from 'mongodb';
 import dbClient from '../utils/db';
 
 export const postNew = async (req, res) => {
@@ -30,12 +30,12 @@ export const postNew = async (req, res) => {
   }
 };
 
-// export const getMe = async (req, res) => {
-//   try {
-//     const user = await dbClient.findUser({ _id: ObjectId(req.user.id) });
-//     res.status(200).json({ email: user.email, id: user._id });
-//   } catch (err) {
-//     console.log(err);
-//     res.status(500).json({ error: 'Server error' });
-//   }
-// };
+export const getMe = async (req, res) => {
+  try {
+    const user = await dbClient.findUser({ _id: ObjectId(req.user.id) });
+    res.status(200).json({ email: user.email, id: user._id });
+  } catch (err) {
+    console.log(err);
+    res.status(500).json({ error: 'Server error' });
+  }
+};
